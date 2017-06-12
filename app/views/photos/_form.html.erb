@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @photo.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <div class="field">
+    <% if @photo.image? %>
+      <div class="thumbnail">
+        <%= image_tag @photo.image.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <% if @photo.persisted? && @photo.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "一覧画面にもどる", photos_path %>
