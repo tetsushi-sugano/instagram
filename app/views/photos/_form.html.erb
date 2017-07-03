@@ -14,7 +14,7 @@
   <% end %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: 'form-control'  %>
   <br>
 
   <div class="field">
@@ -24,7 +24,9 @@
       </div>
     <% end %><br>
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <div class="center">
+    <%= f.file_field :image, class: 'btn btn-primary' %>
+    </div>
     <%= f.hidden_field :image_cache %>
   </div>
   <div class="field">
@@ -36,7 +38,7 @@
     <% end %>
   </div>
 
-  <%= f.submit %>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
 
 <%= link_to "一覧画面にもどる", photos_path %>

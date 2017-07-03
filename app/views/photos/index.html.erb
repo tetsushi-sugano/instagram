@@ -1,9 +1,15 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
 <p><%= notice %></p>
 
 <h1>Photo一覧</h1>
 
+<p><%= link_to "写真を投稿する", new_photo_path, class: 'btn btn-default' %></p>
+ <div class="row">
 <% @photos.each do |photo| %>
-  <p>タイトル:<%= photo.name %></p>
+
+  <div class="col-md-4 photo">
+  <p><strong>タイトル:<%= photo.name %></strong></p>
   <div class="field">
     <% if photo.image? %>
       <div class="thumbnail">
@@ -13,7 +19,13 @@
   </div>
 
   <%= link_to "写真を編集する", edit_photo_path(photo.id) %>
+  <br>
   <%= link_to "写真を削除する", photo_path(photo.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
-<% end %>
+  </div>
 
-<p><%= link_to "写真を投稿する", new_photo_path %></p>
+<% end %>
+  </div>
+
+
+  </div>
+</div>

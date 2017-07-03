@@ -1,25 +1,28 @@
+  <div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
   <section class="main-header">
             <div id="notice" class="bg-success"><%= notice %><%= alert %></div>
   </section>
-  <section class="about">
-    <h1>About Achieve</h1>
-    <p>
-      Achieveは、受講生のために作成された、教材用アプリです。<br>
-      Achieveを作り終えることで、SecondTeamに参加するための力を身につけることができます。
-    </p>
-    <p>
-      Acheiveを一言で表すと、タスク管理アプリです。<br>
-      チームメンバーが、今どのようなタスクを行っているかリアルタイムで把握することができます。
-    </p>
-  </section>
-  <section class="function container-fluid">
+      <h1>Instagramっぽいやつ</h1>
     <div class="row">
-    <h1>Function</h1>
-    <div class="function-images">
-    <div class="col-md-3 col-sm-6">
+
+    <div class="col-md-6"><img src="<%= asset_path "IPhone-Apple-PNG-File.png" %>">
     </div>
+    <div class="col-md-6 center">
+    <p><%= link_to "写真を投稿する", new_photo_path, class: 'btn btn-default' %>
+    </p>
+    <div>
+    <% if user_signed_in? %>
+         <p><%= link_to 'マイページ', edit_user_registration_path , class: 'btn btn-default' %></p>
+         <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class: 'btn btn-default' %>
+         </p>
+         <% else %>
+         <p>
+         <%= link_to 'ログイン', new_user_session_path , class: 'btn btn-default' %>
+         </p>
+         <p><%= link_to 'サインアップ', new_user_registration_path , class: 'btn btn-default' %></p>
+          <% end %>
     </div>
-            <div id="page-top-btn" class="page-top-btn">
-    <p><a class="move-page-top" id="move-page-top">▲</a></p>
 </div>
-  </section>
+</div>
+</div>

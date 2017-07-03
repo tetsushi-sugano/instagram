@@ -464,3 +464,7 @@ template {
 img{
   max-width: 100%;
 }
+
+.photo {
+  margin-bottom: 15px
+}
