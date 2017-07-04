@@ -10,6 +10,7 @@
 
   <div class="col-md-4 photo">
   <p><strong>タイトル:<%= photo.name %></strong></p>
+  <p><strong>投稿者:<%= photo.user.name %></strong></p>
   <div class="field">
     <% if photo.image? %>
       <div class="thumbnail">
